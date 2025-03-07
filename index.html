@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-User Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCq3zbJxgSw-tkb37LGWBEKKwbfM909Nb0",
+            authDomain: "multiuser-quizzz.firebaseapp.com",
+            projectId: "multiuser-quizzz",
+            storageBucket: "multiuser-quizzz.appspot.com",
+            messagingSenderId: "428669773909",
+            appId: "1:428669773909:web:585fa472d5b32ea2a78cdc",
+            measurementId: "G-GWT1R0MQZE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        getAnalytics(app);
+    </script>
+</head>
+<body>
+    <div id="user-login" class="quiz-container">
+        <h2>Enter Your Name</h2>
+        <input type="text" id="username" placeholder="Your name">
+        <button id="start-quiz-btn">Start Quiz</button>
+    </div>
+
+    <div class="quiz-wrapper" style="display: none;">
+        <div class="quiz-title">Quiz Puzzle</div>
+        <div class="quiz-container">
+            <div class="timer">Time Left: <span id="time">30</span>s</div>
+            <div class="question" id="question">Question will appear here</div>
+            <div class="options"></div>
+            <div class="result">Your score: <span id="score">0</span></div>
+            <div class="button-container">
+                <button class="restart-btn">Restart Quiz</button>
+            </div>
+            <div class="leaderboard">
+                <h3>Leaderboard</h3>
+                <ul id="leaderboard-list"></ul>
+                <button id="clear-leaderboard-btn">Clear Leaderboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your JavaScript File (MUST be included as a module) -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
